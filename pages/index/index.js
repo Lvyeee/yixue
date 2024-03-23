@@ -36,9 +36,9 @@ Page({
   },
   // 文档查看
   viewDetail(contentFile){
-    console.log(contentFile,'文档地址');
+    console.log(contentFile.currentTarget.dataset.contentfile,'文档地址');
     wx.downloadFile({
-      url: contentFile.path,
+      url: contentFile.currentTarget.dataset.contentfile.path,
       success: function (res) {
         const filePath = res.tempFilePath
         wx.openDocument({

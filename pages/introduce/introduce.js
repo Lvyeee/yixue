@@ -29,7 +29,7 @@ Page({
 
   codeFn(){
     wx.previewImage({
-      urls:['/images/banner1.jpg'],
+      urls:['/images/mycode.png'],
       success:function(){
         console.log('success')
       },
