@@ -1,0 +1,11 @@
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="shop">
+      <van-card price="10.00" desc="描述信息" title="商品标题" thumb="{{ imageURL }}">
+        <view slot="footer">
+          <van-button color="var(----theme-main)" size="small" plain type="info" bindtap="linkRes">查看详情</van-button>
+        </view>
+      </van-card>
+    </view>
+  </view>
+</scroll-view>

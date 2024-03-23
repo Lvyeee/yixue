@@ -1,0 +1,144 @@
+/* component/authMes/authMes.wxss */
+.auth-wrap {
+  border-radius: 40rpx;
+  box-sizing: border-box;
+  padding: 24rpx;
+  opacity: 1;
+  background-color: #ffffff;
+  z-index: 100002;
+}
+
+.tips-tit {
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: #302e2d;
+  text-align: center;
+  font-weight: 500;
+}
+
+.tips-txt {
+  padding: 40rpx 10rpx;
+  font-size: 28rpx;
+  color: #282b34;
+  letter-spacing: 0;
+  text-align: center;
+  font-weight: 400;
+}
+
+.auth-cont .auth-itm {
+  background-color: #f6f6f6;
+  border-radius: 20rpx;
+  padding: 0 24rpx;
+  height: 96rpx;
+  margin-bottom: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.auth-cont .itm-tit {
+  width: 100rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #302e2d;
+}
+
+.avatar-cont .avatar-btn {
+  width: 100%;
+  height: 96rpx;
+  padding: 0 !important;
+  box-sizing: content-box !important;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar-cont {
+  width: 18%;
+}
+
+.avatar {
+  width: 56rpx;
+  height: 56rpx;
+  display: inline-block;
+}
+
+.avatar::after {
+  border: none;
+}
+
+.icon-r {
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 8rpx;
+}
+
+.nick-name {
+  text-align: right;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #302e2d;
+}
+
+.aggre-v {
+  display: flex;
+  align-items: center;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #302e2d;
+  font-weight: 400;
+}
+
+.aggre-v image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 16rpx;
+}
+
+.auth-btn {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 24rpx;
+  margin: 30rpx 0 20rpx;
+}
+
+.auth-btn .btn {
+  font-family: PingFangSC-Medium;
+  font-size: 32rpx;
+  color: var(--theme-bg-main);
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  border: 2rpx solid  var(--theme-bg-main);
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+}
+
+.auth-btn .com-btn {
+  background-color: #ebd6d7;
+  border-color: #ebd6d7;
+}
+
+.phone-btn {
+  border: 0;
+  text-align: right;
+  padding: 0;
+  line-height: 1;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: var(--theme-bg-main);
+}
+
+.fie-lable {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #302e2d;
+}
+
+.input-holder {
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #88868b;
+}

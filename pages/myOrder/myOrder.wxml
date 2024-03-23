@@ -1,0 +1,11 @@
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="shop">
+      <van-card tag="状态" desc="订单号：{{code}}" title="商品标题" thumb="{{ imageURL }}">
+        <view slot="footer">
+          <van-button color="var(----theme-main)" data-id="111" size="small" plain type="primary" bindtap="copyFn">点击复制订单号</van-button>
+        </view>
+      </van-card>
+    </view>
+  </view>
+</scroll-view>

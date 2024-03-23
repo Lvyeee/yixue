@@ -1,0 +1,31 @@
+<!--component/authMes/authMes.wxml-->
+
+<van-popup show="{{ showModal }}" round bind:close="closeHandle" custom-class="auth-box" custom-style="width: 84%;z-index:10002;" overlay-style="z-index:10001;">
+  <view class="auth-wrap">
+    <view>
+      <view class="tips-tit">个人信息</view>
+      <view class="tips-txt"></view>
+    </view>
+    <view class="auth-cont">
+      <view class="auth-itm">
+        <view class="itm-tit">头像</view>
+        <view class="avatar-cont">
+          <button class="avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+            <image class="avatar" src="{{avatarMes.avatarUrl}}"></image>
+            <!-- <image class="avatar" src="../../images/common/auth_default.png" wx:if="{{!avatarMes.avatarUrl}}"></image>
+            <image class="icon-r" src="../../images/common/icon_arrow_black.png" /> -->
+          </button>
+        </view>
+      </view>
+      <view class="auth-itm">
+        <view class="itm-tit">昵称</view>
+        <input class="nick-name" placeholder="点击输入" type="nickname" value="{{avatarMes.nickName}}" bindblur="bindblur" placeholder-class="input-holder"></input>
+      </view>
+    </view>
+    <view class="auth-btn">
+      <view class="btn" catchtap="cancel">取消</view>
+      <view class="btn com-btn" catchtap="confirm">确认</view>
+    </view>
+  </view>
+  
+</van-popup>

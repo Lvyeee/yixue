@@ -1,0 +1,42 @@
+/**app.wxss**/
+
+@import "/utils/iconfont.wxss";
+page {
+  font-size: 28rpx;
+  --theme-radius:8rpx;
+  --theme-grey:#cfcfcf;
+  --theme-grey-d:#666666;
+  --theme-main:#80404a;
+  --theme-border:#d6d6d6;
+  --theme-grey-bj:#f2f2f2;
+  --theme-grey-mbj:#f7f7f7;
+  --theme-orange:#fd6700;
+  --theme-yy: 2rpx 2rpx 10rpx #d9d9d9;
+  --theme-bk:1rpx solid #ededed;
+  --theme-bg-main: #784e35;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  box-sizing: border-box;
+} 
+
+.shu{
+  display: inline-block;
+  width: 10rpx;
+  height: 30rpx;
+  background-color: #80404a;
+}
+
+
+.title {
+  font-weight: 900;
+  font-size: 40rpx;
+  color: #000000;
+  padding: 20rpx;
+  border-bottom: 1px solid #000000;
+}

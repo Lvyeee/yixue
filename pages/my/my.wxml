@@ -1,0 +1,24 @@
+<!--pages/my/my.wxml-->
+<view class="infoBox">
+  <image class="infoBoxBg" src="/images/yxbackground.jpg"></image>
+  <view class="infocont" bindtap="goChange">
+    <view class="infoDetail" >
+      <van-image width="6rem" height="6rem" fit="cover" round src="{{avatarMes.avatarUrl}}" />
+      <view class="myInfo">
+        <view class="userName">{{avatarMes.nickName}}</view>
+      </view>
+    </view>
+  </view>
+  <van-divider contentPosition="center">已购项目在我的订单中查看核验</van-divider>
+</view>
+<view class="navList">
+  <navigator class="navItem" url="../myOrder/myOrder" open-type="navigate">
+    <view>
+      <view>我的订单</view>
+      <text class="iconfont icon-qianjin"></text>
+    </view>
+  </navigator>
+</view>
+<button class="emptyBox" bindtap="emptyUser">退出登录</button>
+
+<auth-mes showModal="{{showModal}}" avatarMes="{{avatarMes}}" id='autnMes' bind:onConfirm="onConfirm"></auth-mes>

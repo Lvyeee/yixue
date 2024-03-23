@@ -1,0 +1,34 @@
+<!--index.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="userinfo">
+      <view class="swiper">
+        <swiper class="swiper_box" indicator-dots="{{true}}" indicator-color="#80404a" indicator-active-color="#ffffff" autoplay="{{true}}" circular="{{true}}">
+          <swiper-item wx:for="{{bannerlist}}" wx:key="id">
+            <image style="width: 100%;" src="{{item.imageUrl}}" data-url="{{item.url}}" bindtap="swipclick"></image>
+          </swiper-item>
+        </swiper>
+      </view>
+      <view class="navAll">
+        <view class="navList">
+          <navigator url="../introduce/introduce">
+            <van-icon name="manager-o" style="margin-right: 40rpx;" />大师介绍
+          </navigator>
+          <navigator 	open-type="switchTab" url="../shop/shop">
+            <van-icon name="shop-o" style="margin-right: 40rpx;" />服务项目
+          </navigator>
+        </view>
+      </view>
+      <view class="new_list">
+        <view class="title"><view class="shu"></view> 经典文章</view>
+        <view class="new_list_card" bindtap="viewDetail" wx:for="{{listArticle}}" wx:for-index="idx" wx:for-item="item" data-contentFile="{{item.contentFile}}">
+          <image src="{{item.coverFile.path}}" mode=""/>
+          <view class="new_list_card_info">
+            <view class="new_list_card_info_title">标题：{{item.title}}</view>
+            <view>简述介绍：{{item.description}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

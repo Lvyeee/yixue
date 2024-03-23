@@ -1,0 +1,39 @@
+/* pages/introduce/introduce.wxss */
+
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.introduce{
+  padding: 50rpx;
+}
+
+.dashi>image{
+  width: 220rpx;
+  height: 300rpx;
+  float: left;
+  margin-right: 40rpx;
+}
+
+.flexBox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.infoBox{
+  display: flex;
+  align-items: center;
+}
+
+.infoBox>image{
+  width: 32rpx;
+  height: 32rpx;
+}

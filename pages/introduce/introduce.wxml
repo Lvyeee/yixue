@@ -1,0 +1,35 @@
+<!--pages/introduce/introduce.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="introduce">
+    <view class="dashi">
+      <image src="/images/头像.png" mode=""/>
+      <span >人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍人物介绍</span>
+    </view>
+    <view>
+      <image src="/images/certificate1.png" mode=""/>
+      <image src="/images/certificate2.png" mode=""/>
+    </view>
+    <van-divider />
+    <view class="flexBox" bindtap="callFn">
+      <view class="infoBox">
+        <image src="/images/phone.png" mode=""/>电话
+      </view>
+      <text>13758189797</text>
+    </view>
+    <van-divider />
+    <view class="flexBox" bindtap="codeFn">
+      <view class="infoBox">
+        <image src="/images/code.png" mode=""/>二维码
+      </view>
+      <text>点击查看</text>
+    </view>
+    <van-divider />
+    <view class="flexBox">
+      <view class="infoBox">
+        <image src="/images/adress.png" mode=""/>地址
+      </view>
+      <text>浙江省杭州市桐庐县旧县街道洋塘西路169号</text>
+    </view>
+    <van-divider />
+  </view>
+</scroll-view>

@@ -1,0 +1,79 @@
+<!-- <view class="login-header" wx:if="{{!isLogin}}" bindtap="getLoginUser">
+     <image src="{{userInfo.headPic}}" class="user-head" mode="aspectFill" />
+     <view class="user-title">{{userInfo.username}}</view>
+</view>
+<view class="login-header" wx:else  >
+     <image src="{{userInfo.headPic === userInfo.wxHeadPic ? userInfo.wxHeadPic : basePhotoUrl + userInfo.headPic}}" class="user-head" mode="aspectFill" mut-bind:tap="previewHead" />
+     <view class="user-title">{{userInfo.username}}</view>
+</view>
+
+<van-notify id="van-notify" />
+
+<view class="user-menu">
+    <van-grid column-num="{{isLogin ? 3 : 2}}">
+        <van-grid-item icon="balance-pay" text="我的订单" />
+        <van-grid-item icon="chat-o" text="我的评价" />
+        <van-grid-item wx:if="{{isLogin}}" bind:click="logout" icon="revoke" text="退出登录" />
+    </van-grid>
+</view>
+
+<van-dialog
+  use-slot
+  show-cancel-button
+  zIndex="109"
+  before-close="{{onBeforeClose}}"
+  title="个人信息"
+  bind:confirm="updateUserInfo"
+  show="{{ profileDialogVisible }}"
+>
+  <view style="padding: 20rpx;">
+    <view style="display: flex; margin: 20rpx 0; padding-left: 32rpx;">
+      <view style="margin-right: 86rpx; display: flex; align-items: center; color: #646566; font-size: 28rpx;">用户头像</view>
+      <van-image bindtap="openUploadCoverPhoto"  width="100" height="70" src="{{editUser.headPic === editUser.wxHeadPic ? editUser.wxHeadPic : basePhotoUrl + editUser.headPic}}" />
+    </view>
+    <van-field
+      bind:change="onChangeDialog"
+      clearable
+      data-type="username"
+      value="{{editUser.username}}"
+      label="用户昵称"
+      type="textarea"
+      placeholder="请输入用户昵称"
+      autosize
+      />
+    <van-field
+      bind:change="onChangeDialog"
+      clearable
+      data-type="password"
+      value="{{editUser.password}}"
+      label="用户密码"
+      type="password"
+      placeholder="请输入用户密码"
+      autosize
+    />
+    <van-field
+      bind:change="onChangeDialog"
+      clearable
+      data-type="phone"
+      value="{{editUser.phone}}"
+      label="手机号码"
+      type="digit"
+      placeholder="请输入手机号码"                   
+    />
+    <view style="display: flex; margin: 20rpx 0; padding-left: 32rpx;">
+      <view style="margin-right: 72rpx; display: flex; align-items: center; color: #646566; font-size: 28rpx;">用户性别</view>
+      <van-radio-group direction="horizontal" data-type="sex" value="{{ editUser.sex }}" bind:change="onChangeDialog">
+        <van-radio name="{{1}}">男</van-radio>
+        <van-radio name="{{2}}">女</van-radio>
+        <van-radio name="{{3}}">未知</van-radio>
+      </van-radio-group>
+    </view>
+  </view>
+
+</van-dialog> -->
+
+<view class="login" >
+  <image src="/images/logo.png" mode=""/>
+  <view class="appName">盈谷文化</view>
+  <van-button  color="var(----theme-main)" size="large" plain type="info" bindtap="getLoginUser">一键登录</van-button>
+</view>

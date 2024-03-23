@@ -1,0 +1,75 @@
+/* pages/my/my.wxss */
+
+.infoBox {
+  position: relative;
+}
+.infoBoxBg {
+  width: 100%;
+  display: block;
+  height: 350rpx;
+  filter: blur(2px);
+}
+.infocont {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  padding: 80rpx 35rpx 0 70rpx;
+  box-sizing: border-box;
+}
+.infoDetail {
+  display: flex;
+  align-items: center;
+}
+
+.myInfo{
+  margin-left: 130rpx;
+}
+
+.userName {
+  font-size: 50rpx;
+  color: black;
+  font-weight: 800;
+  margin-left: 80rpx;
+}
+
+.navList {
+  padding-bottom: 26rpx;
+  box-sizing: border-box;
+}
+.navItem {
+  padding-left: 30rpx;
+  box-sizing: border-box;
+  background-color: #f5f5f8;
+}
+.navButton {
+  background-color: #fff;
+  line-height: 32rpx;
+}
+.navItem>view {
+  box-sizing: border-box;
+  padding: 36rpx 30rpx 36rpx 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #303030;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+.navItem:last-child>view {
+  border-bottom: none;
+}
+.navItem>view>text {
+  color: #c6c6d3;
+  margin-top: 4rpx;
+}
+
+.emptyBox {
+  margin-top: 80%;
+  margin-bottom: 60rpx;
+  text-align: center;
+  color: var(--theme-main);
+  border: none;
+  background-color: #fff;
+}

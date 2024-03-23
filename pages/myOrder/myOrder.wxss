@@ -1,0 +1,11 @@
+/* pages/myOrder/myOrder.wxss */
+
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.shop {
+  width: 100%;
+}
