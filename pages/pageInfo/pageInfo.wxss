@@ -16,7 +16,7 @@ page {
   height: 400rpx;
 }
 
-.swiper_box {
+/* .swiper_box {
   width: 100%;
   height: 400rpx;
 }
@@ -26,9 +26,9 @@ swiper-item {
   height: 400rpx;
   display: inline-block;
   overflow: hidden;
-}
+} */
 
-swiper-item image {
+.swiper image {
   height: 400rpx;
   width: 100%;
 }

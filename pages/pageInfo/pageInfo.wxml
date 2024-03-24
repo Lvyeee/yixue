@@ -2,21 +2,18 @@
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
     <view class="swiper">
-      <swiper class="swiper_box" indicator-dots="{{true}}" indicator-color="#80404a" indicator-active-color="#ffffff" autoplay="{{true}}" circular="{{true}}">
-        <swiper-item wx:for="{{bannerlist}}" wx:key="id">
-          <image style="width: 100%;" src="{{item.imageUrl}}" data-url="{{item.url}}" bindtap="swipclick"></image>
-        </swiper-item>
-      </swiper>
+          <image style="width: 100%;" src="{{projectBaseInfo.detailFile.path}}" data-url="{{item.url}}" bindtap="swipclick"></image>
     </view>
     <view class="price_box">
-      <span class="price">￥500</span>
+      <span class="price">￥{{projectBaseInfo.price}}</span>
       <span></span>
-      <span class="sales">销量：800+</span>
+      <span class="sales">销量：{{projectBaseInfo.salesVolume}}</span>
     </view>
     <view class="project_box">
       <van-tabs active="a" color="var(--theme-main)">
         <van-tab title="项目介绍" name="a">
-          <image style="width: 100vw;" src="/images/certificate1.png" mode="widthFix"/>
+
+          <image wx:for="{{projectIntroduceInfoList}}" wx:key="index" style="width: 100vw;" src="{{item.fileInfo.path}}" mode="widthFix"/>
         </van-tab>
         <van-tab title="评论" name="b">
           <view class="comment_but">
@@ -26,10 +23,10 @@
             <view class="comment_list" wx:for="{{commentList}}" wx:key="id">
               <view class="comment_list_name">
                 <view class="comment_list_name_box">
-                  <van-image round width="2rem" height="2rem" src="{{item.image}}" />
-                  <span>{{item.name}}</span>
+                  <van-image round width="2rem" height="2rem" src="{{item.userInfo.avatar}}" />
+                  <span>{{item.userInfo.userName}}</span>
                 </view>
-                <van-rate color="#ffd21e" readonly size="1rem" value="{{ item.rate }}" />
+                <van-rate color="#ffd21e" readonly size="1rem" value="{{ item.star }}" />
               </view>
               <view class="comment_list_content">
                 评论

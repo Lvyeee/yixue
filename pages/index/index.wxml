@@ -5,7 +5,7 @@
       <view class="swiper">
         <swiper class="swiper_box" indicator-dots="{{true}}" indicator-color="#80404a" indicator-active-color="#ffffff" autoplay="{{true}}" circular="{{true}}">
           <swiper-item wx:for="{{bannerlist}}" wx:key="id">
-            <image style="width: 100%;" src="{{item.imageUrl}}" data-url="{{item.url}}" bindtap="swipclick"></image>
+            <image style="width: 100%;" src="{{item.file.path}}" data-url="{{item.url}}" bindtap="swipclick"></image>
           </swiper-item>
         </swiper>
       </view>

@@ -4,7 +4,7 @@ import { myRequest } from "../../utils/request";
 import Notify from "@vant/weapp/notify/notify";
 import Cache from "../../utils/cache";
 import Tool from "../../utils/tool";
-
+https://api.weixin.qq.com/sns/jscode2session?appid=wx4ec76b3071535335&secret=a7278ef3bf2239df1dfe72d66067361a&js_code=0d1iFYFa1uCm8H0019Ia10yC1z2iFYFQ&grant_type=authorization_code
 
 Page({
 
@@ -12,6 +12,8 @@ Page({
      * 页面的初始数据
      */
     data: {
+        appid:"wx4ec76b3071535335",
+        secretid:'a7278ef3bf2239df1dfe72d66067361a',
         isLogin: false,
         userInfo: {
             username: "还未登录，请先登录！",
@@ -88,46 +90,47 @@ Page({
                     let username = res.userInfo.nickName;
                     let headPic = res.userInfo.avatarUrl;
                     console.log(res,'用户信息');
-                    // wx.login({
-                    //     success: async res => {
-                    //         if (res.errMsg === "login:ok") {
-                    //             // 调用后端接口，验证用户数据
-                    //             const response = await myRequest({
-                    //                 url: api.BASE_URL + "/app/user/wx_login",
-                    //                 method: "POST",
-                    //                 data: {
-                    //                     wxHeadPic: headPic,
-                    //                     wxUsername: username,
-                    //                     code: res.code
-                    //                 }
-                    //             });
-                    //             if(response.data.code === 0) {
-                    //                 Notify({ type: "success", message: response.data.msg, duration: 1000 });
-                    //                 Cache.setCache(getApp().globalData.SESSION_KEY_LOGIN_USER, response.data.data.token, 3600);
-                    //                 this.setData({
-                    //                     userInfo: response.data.data,
-                    //                     editUser: response.data.data,
-                    //                     isLogin: true
-                    //                 });
-                    //             } else {
-                    //                 Notify({ type: "danger", message: response.data.msg, duration: 2000 });
-                    //             }
-                    //         } else {
-                    //             wx.showToast({
-                    //                 icon: "error",
-                    //                 title: "登录失败"
-                    //             });
-                    //         }
-                    //         wx.hideLoading();
-                    //     },
-                    //     fail: res => {
-                    //         wx.showToast({
-                    //             icon: "error",
-                    //             title: "登录失败"
-                    //         });
+                    wx.login({
+                        success: async res => {
+                            if (res.errMsg === "login:ok") {
+                              console.log(res,'login');
+                                // 调用后端接口，验证用户数据
+                                // const response = await myRequest({
+                                //     url: api.BASE_URL + "/app/user/wx_login",
+                                //     method: "POST",
+                                //     data: {
+                                //         wxHeadPic: headPic,
+                                //         wxUsername: username,
+                                //         code: res.code
+                                //     }
+                                // });
+                                // if(response.data.code === 0) {
+                                //     Notify({ type: "success", message: response.data.msg, duration: 1000 });
+                                //     Cache.setCache(getApp().globalData.SESSION_KEY_LOGIN_USER, response.data.data.token, 3600);
+                                //     this.setData({
+                                //         userInfo: response.data.data,
+                                //         editUser: response.data.data,
+                                //         isLogin: true
+                                //     });
+                                // } else {
+                                //     Notify({ type: "danger", message: response.data.msg, duration: 2000 });
+                                // }
+                            } else {
+                                wx.showToast({
+                                    icon: "error",
+                                    title: "登录失败"
+                                });
+                            }
                             wx.hideLoading();
-                    //     }
-                    // })
+                        },
+                        fail: res => {
+                            // wx.showToast({
+                            //     icon: "error",
+                            //     title: "登录失败"
+                            // });
+                            wx.hideLoading();
+                        }
+                    })
                 } else {
                     wx.showToast({
                         icon: "error",

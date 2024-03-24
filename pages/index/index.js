@@ -1,23 +1,14 @@
 // index.js
 import {callContainer} from '../../utils/callContainer';
-const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 
 Page({
   data: {
-    bannerlist: [
-      {
-        title:'banner1',
-        imageUrl:'/images/banner1.jpg'
-      },
-      {
-        title:'banner2',
-        imageUrl:'/images/banner2.jpg'
-      },
-    ],
+    bannerlist: [],
     listArticle:[],
   },
   onLoad(){
-    this.getListArticle();
+    this.getListArticle(); 
+    this.getBannerList(); 
   },
   // banner点击跳转
   swipclick(e){
@@ -55,5 +46,11 @@ Page({
     callContainer('/article/listArticlePage','pageNum=1&pageSize=10','GET').then(result=>{
       this.setData({listArticle:result.data.rows});
     });
-  }
+  },
+  // 获取banner
+  getBannerList(){
+    callContainer('/banner/listBanner','','GET').then(result=>{
+      this.setData({bannerlist:result.data.data});
+    });
+  },
 })
