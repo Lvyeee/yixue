@@ -25,14 +25,18 @@
 }
 
 .myInfo{
-  margin-left: 130rpx;
+  margin-left: 120rpx;
+  width: 400rpx;
+  text-align: center;
+  white-space: nowrap; /* 设置为不换行 */
+   overflow: hidden; /* 超过容器大小时隐藏内容 */
+   text-overflow: ellipsis; /* 显示省略号 */
 }
 
 .userName {
   font-size: 50rpx;
   color: black;
   font-weight: 800;
-  margin-left: 80rpx;
 }
 
 .navList {

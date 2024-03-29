@@ -11,7 +11,7 @@
         <view class="itm-tit">头像</view>
         <view class="avatar-cont">
           <button class="avatar-btn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-            <image class="avatar" src="{{avatarMes.avatarUrl}}"></image>
+            <image class="avatar" src="{{avatarMes.avatar}}"></image>
             <!-- <image class="avatar" src="../../images/common/auth_default.png" wx:if="{{!avatarMes.avatarUrl}}"></image>
             <image class="icon-r" src="../../images/common/icon_arrow_black.png" /> -->
           </button>

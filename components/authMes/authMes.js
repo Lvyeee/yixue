@@ -13,7 +13,7 @@ Component({
     avatarMes: {
       type: Object,
       value: {
-        avatarUrl: "",
+        avatar: "",
         nickName: "",
       }
     },
@@ -45,40 +45,41 @@ Component({
     },
     uploadAva(tempFilePaths) {
       var that = this;
-      wx.uploadFile({
-        url: app.siteinfo.apiUrl + '图片上传接口', //需要用HTTPS，同时在微信公众平台后台添加服务器地址
-        filePath: tempFilePaths, //上传的文件本地地址
-        name: "Image", //服务器定义的Key值
-        header: {
-          'content-type': 'multipart/form-data',
-          'cookie': wx.getStorageSync('cookie')
-        },
-        formData: {
-          //接口所需的其他上传字段
-          uploadDir: '',
-          fileType: '',
-        },
-        // 附近数据，这里为路径
-        success: function (res) {
-          wx.hideLoading();
-          if (res.statusCode == 200) {
-            var result = JSON.parse(res.data);
-            if (result.status) {
-              // var imgUrl = [{ name: 'headImgUrl', url: result.data.fileurl }];
-              that.setData({
-                'avatarMes.avatarUrl': result.data.fileurl
-              })
-            } else {
-              app.alert.show(res.errmsg);
-            }
-          } else {
-            app.alert.show(res);
-          }
-        },
-        fail: function (err) {
-          console.log(err);
-        }
-      });
+      console.log(tempFilePaths,'tempFilePaths');
+      // wx.uploadFile({
+      //   url: app.siteinfo.apiUrl + '图片上传接口', //需要用HTTPS，同时在微信公众平台后台添加服务器地址
+      //   filePath: tempFilePaths, //上传的文件本地地址
+      //   name: "Image", //服务器定义的Key值
+      //   header: {
+      //     'content-type': 'multipart/form-data',
+      //     'cookie': wx.getStorageSync('cookie')
+      //   },
+      //   formData: {
+      //     //接口所需的其他上传字段
+      //     uploadDir: '',
+      //     fileType: '',
+      //   },
+      //   // 附近数据，这里为路径
+      //   success: function (res) {
+      //     wx.hideLoading();
+      //     if (res.statusCode == 200) {
+      //       var result = JSON.parse(res.data);
+      //       if (result.status) {
+      //         // var imgUrl = [{ name: 'headImgUrl', url: result.data.fileurl }];
+      //         that.setData({
+      //           'avatarMes.avatarUrl': result.data.fileurl
+      //         })
+      //       } else {
+      //         app.alert.show(res.errmsg);
+      //       }
+      //     } else {
+      //       app.alert.show(res);
+      //     }
+        // },
+        // fail: function (err) {
+        //   console.log(err);
+        // }
+      // });
     },
     // 输入
     onChange(e) {

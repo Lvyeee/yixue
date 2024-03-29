@@ -24,12 +24,12 @@
               <view class="comment_list_name">
                 <view class="comment_list_name_box">
                   <van-image round width="2rem" height="2rem" src="{{item.userInfo.avatar}}" />
-                  <span>{{item.userInfo.userName}}</span>
+                  <span>{{item.userInfo.nickName}}</span>
                 </view>
                 <van-rate color="#ffd21e" readonly size="1rem" value="{{ item.star }}" />
               </view>
               <view class="comment_list_content">
-                评论
+                {{item.comment}}
               </view>
             </view>
           </view>
