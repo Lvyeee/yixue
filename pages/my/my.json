@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "auth-mes":"/components/authMes/authMes"
+    "auth-mes":"/components/authMes/authMes",
+    "van-field": "@vant/weapp/field/index",
+    "van-popup": "@vant/weapp/popup/index"
   }
 }

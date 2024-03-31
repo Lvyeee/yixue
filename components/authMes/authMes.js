@@ -13,7 +13,7 @@ Component({
     avatarMes: {
       type: Object,
       value: {
-        avatar: "",
+        avatarCloudFileId: "",
         nickName: "",
       }
     },
@@ -23,7 +23,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-
 
   },
 
@@ -37,57 +36,14 @@ Component({
     },
     // 拿到头像信息的临时路径
     onChooseAvatar(e) {
-      const {
-        avatarUrl
-      } = e.detail;
-      console.log('头像地址', avatarUrl);
       this.uploadAva(e.detail.avatarUrl);
     },
     uploadAva(tempFilePaths) {
-      var that = this;
-      console.log(tempFilePaths,'tempFilePaths');
-      // wx.uploadFile({
-      //   url: app.siteinfo.apiUrl + '图片上传接口', //需要用HTTPS，同时在微信公众平台后台添加服务器地址
-      //   filePath: tempFilePaths, //上传的文件本地地址
-      //   name: "Image", //服务器定义的Key值
-      //   header: {
-      //     'content-type': 'multipart/form-data',
-      //     'cookie': wx.getStorageSync('cookie')
-      //   },
-      //   formData: {
-      //     //接口所需的其他上传字段
-      //     uploadDir: '',
-      //     fileType: '',
-      //   },
-      //   // 附近数据，这里为路径
-      //   success: function (res) {
-      //     wx.hideLoading();
-      //     if (res.statusCode == 200) {
-      //       var result = JSON.parse(res.data);
-      //       if (result.status) {
-      //         // var imgUrl = [{ name: 'headImgUrl', url: result.data.fileurl }];
-      //         that.setData({
-      //           'avatarMes.avatarUrl': result.data.fileurl
-      //         })
-      //       } else {
-      //         app.alert.show(res.errmsg);
-      //       }
-      //     } else {
-      //       app.alert.show(res);
-      //     }
-        // },
-        // fail: function (err) {
-        //   console.log(err);
-        // }
-      // });
+      this.uploadFile(tempFilePaths, tempFilePaths.substr(tempFilePaths.lastIndexOf('/') + 1)).then((result) => {
+        this.setData({'avatarMes.avatarCloudFileId':result})
+      })
     },
-    // 输入
-    onChange(e) {
-      let field = 'avatarMes.' + e.currentTarget.dataset.field;
-      this.setData({
-        [field]: e.detail
-      });
-    },
+
     //点击遮罩层关闭
     closeHandle() {
       this.setData({
@@ -102,9 +58,41 @@ Component({
     },
     // 确认
     confirm() {
+      console.log(this.data.avatarMes,'avatarMes');
       this.triggerEvent('onConfirm', {
         avatar: this.data.avatarMes
       });
     },
+    /**
+     * 上传文件到微信云托管对象存储
+     * @param {*} file 微信本地文件，通过选择图片，聊天文件等接口获取
+     * @param {*} path 对象存储路径，根路径直接填文件名，文件夹例子 test/文件名，不要 / 开头
+     * @param {*} onCall 上传回调，文件上传过程监听，返回false时会中断上传
+     */
+    uploadFile(file, path, onCall = () => {}) {
+      return new Promise((resolve, reject) => {
+        const task = wx.cloud.uploadFile({
+          cloudPath: path,
+          filePath: file,
+          config: {
+            env: 'prod-6g8rvo635e2e18c3' // 需要替换成自己的微信云托管环境ID
+          },
+          success: res => resolve(res.fileID),
+          fail: e => {
+            const info = e.toString()
+            if (info.indexOf('abort') != -1) {
+              reject(new Error('【文件上传失败】中断上传'))
+            } else {
+              reject(new Error('【文件上传失败】网络或其他错误'))
+            }
+          }
+        })
+        task.onProgressUpdate((res) => {
+          if (onCall(res) == false) {
+            task.abort()
+          }
+        })
+      })
+    }
   }
 })

@@ -12,7 +12,8 @@ Page({
     avatarMes: {
       avatar: "",
       nickName: "",
-    }
+    },
+    userId:''
   },
 
   /**
@@ -22,7 +23,28 @@ Page({
     this.getUserInfo();
   },
   onConfirm(e) {
-    console.log(e);
+    let that = this;
+    wx.getStorage({
+      key: "userId",
+      success(res) {
+        let parmas = {
+          userId:res.data,
+          avatarCloudFileId:e.detail.avatar.avatarCloudFileId,
+          nickName:e.detail.avatar.nickName
+        }
+        callContainer('/wxUser/updateAvatarAndNickName','','POST',parmas).then(result => {
+          that.setData({
+            showModal: false
+          });
+          wx.showToast({
+            icon: "success",
+            title: '修改成功！'
+          });
+          that.getUserInfo();
+        });
+      }
+    });
+   
   },
   goChange() {
     this.setData({
@@ -34,7 +56,7 @@ Page({
     wx.getStorage({
       key: "userId",
       success(res) {
-        console.log(res.data, 'getStorage')
+        that.setData({userId:res.data});
         callContainer(`/wxUser/getUserInfo/${res.data}`, '', 'GET').then(result => {
           that.setData({avatarMes:result.data.data});
         });
@@ -51,7 +73,7 @@ Page({
         if (res.confirm) {
           wx.clearStorageSync();
           wx.reLaunch({
-            url: ''
+            url: '/pages/login/login'
           })
         }
       }

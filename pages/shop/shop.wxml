@@ -1,7 +1,7 @@
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
     <view class="shop" wx:for="{{listProject}}" wx:key="index">
-      <van-card price="{{item.price}}" desc="{{item.description}}" title="{{item.name}}" thumb="{{ item.coverFile.path }}">
+      <van-card price="{{item.price}}" desc="{{item.description}}" title="{{item.name}}" thumb="{{ item.coverFile.cloudFileId }}">
         <view slot="footer">
           <van-button color="var(----theme-main)" size="small" plain type="info" data-id="{{item.id}}" bindtap="linkRes">查看详情</van-button>
         </view>

@@ -2,7 +2,7 @@
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
     <view class="swiper">
-          <image style="width: 100%;" src="{{projectBaseInfo.detailFile.path}}" data-url="{{item.url}}" bindtap="swipclick"></image>
+          <image style="width: 100%;" src="{{projectBaseInfo.detailFile.cloudFileId}}"></image>
     </view>
     <view class="price_box">
       <span class="price">￥{{projectBaseInfo.price}}</span>
@@ -13,7 +13,7 @@
       <van-tabs active="a" color="var(--theme-main)">
         <van-tab title="项目介绍" name="a">
 
-          <image wx:for="{{projectIntroduceInfoList}}" wx:key="index" style="width: 100vw;" src="{{item.fileInfo.path}}" mode="widthFix"/>
+          <image wx:for="{{projectIntroduceInfoList}}" wx:key="index" style="width: 100vw;" src="{{item.fileInfo.cloudFileId}}" mode="widthFix"/>
         </van-tab>
         <van-tab title="评论" name="b">
           <view class="comment_but">
@@ -23,7 +23,7 @@
             <view class="comment_list" wx:for="{{commentList}}" wx:key="id">
               <view class="comment_list_name">
                 <view class="comment_list_name_box">
-                  <van-image round width="2rem" height="2rem" src="{{item.userInfo.avatar}}" />
+                  <van-image round width="2rem" height="2rem" src="{{item.userInfo.avatarCloudFileId}}" />
                   <span>{{item.userInfo.nickName}}</span>
                 </view>
                 <van-rate color="#ffd21e" readonly size="1rem" value="{{ item.star }}" />
@@ -41,9 +41,9 @@
     </van-goods-action>
     <van-dialog use-slot title="发布评论" show="{{ show }}" show-cancel-button width="95%" confirmButtonText="发布" confirm-button-color="var(--theme-main)" confirm-button-open-type="getUserInfo" bind:close="onClose" bind:getuserinfo="getUserInfo">
       <view class="comment_dialog_content">
-          评论内容：<textarea  placeholder="请输入评论内容" />
+          评论内容：<textarea bindblur="textBlur" placeholder="请输入评论内容" auto-focus />
           满意度：
-          <van-rate value="{{ value }}" color="#ffd21e" bind:change="onChange" />
+          <van-rate value="{{ star }}" color="#ffd21e" bind:change="onChange" />
       </view>
     </van-dialog>
   </view>

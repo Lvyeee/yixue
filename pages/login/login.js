@@ -60,25 +60,15 @@ Page({
       title: "获取登录信息...",
       mask: true
     })
-    const loginUser = Cache.getCache(getApp().globalData.SESSION_KEY_LOGIN_USER);
-    if (Tool.isEmpty(loginUser)) {
-      wx.hideLoading();
-      return;
-    }
-    const res = await myRequest({
-      url: api.BASE_URL + "/app/user/get_login_user",
-      method: "POST",
-      data: {
-        token: loginUser
+    await wx.getStorage({
+      key: "userId",
+      success(res) {
+        wx.hideLoading();
+        wx.switchTab({
+          url: '/pages/index/index',
+        });
       }
     });
-    if (res.data.code === 0) {
-      this.setData({
-        userInfo: res.data.data,
-        isLogin: true,
-        editUser: res.data.data
-      })
-    }
     wx.hideLoading();
   },
   // 登录操作

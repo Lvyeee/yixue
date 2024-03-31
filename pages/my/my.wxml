@@ -3,7 +3,7 @@
   <image class="infoBoxBg" src="/images/yxbackground.jpg"></image>
   <view class="infocont" bindtap="goChange">
     <view class="infoDetail" >
-      <van-image width="6rem" height="6rem" fit="cover" round src="{{avatarMes.avatar}}" />
+      <van-image width="6rem" height="6rem" fit="cover" round src="{{avatarMes.avatarCloudFileId}}" />
       <view class="myInfo">
         <view class="userName">{{avatarMes.nickName}}</view>
       </view>
