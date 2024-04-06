@@ -27,29 +27,32 @@ Page({
   },
 
   // tab切换
-  onChange(event) {
-    Toast('当前值：' + event);
+  onChange(e) {
+    console.log(e.detail,'event');
+    this.data.star = e.detail;
   },
   textBlur(e) {
-    this.setData({
-      commentValue: e.detail.value
-    })
+    console.log(e.detail,'e');
+    this.data.commentValue = e.detail.value;
   },
   // 弹出框确认回调
-  getUserInfo() {
-    let that = this;
+  commentSend() {
+    let parmas = {
+      userId: '',
+      star: this.data.star,
+      comment: this.data.commentValue,
+      projectId: this.data.id
+    }
+    console.log(parmas,'parmas');
     wx.getStorage({
       key: "userId",
       success(res) {
-        let parmas = {
-          userId: res.data,
-          star: that.data.star,
-          comment: that.data.commentValue,
-          projectId: that.data.id
-        }
+        parmas.userId = res.data;
         callContainer('/project/addProjectComment', '', 'POST', parmas).then(result => {
           that.setData({
-            show: false
+            show: false,
+            commentValue:'',
+            star:5
           });
           wx.showToast({
             icon: "success",
