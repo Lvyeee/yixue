@@ -75,7 +75,7 @@ Component({
           cloudPath: path,
           filePath: file,
           config: {
-            env: 'prod-6g8rvo635e2e18c3' // 需要替换成自己的微信云托管环境ID
+            env: 'prod-4g4hymut6da76cf7' // 需要替换成自己的微信云托管环境ID
           },
           success: res => resolve(res.fileID),
           fail: e => {

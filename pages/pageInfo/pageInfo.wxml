@@ -37,7 +37,7 @@
       </van-tabs>
     </view>
     <van-goods-action>
-      <van-goods-action-button custom-style="float:right" size="small" plain color="var(--theme-main)" text="立即购买" />
+      <van-goods-action-button custom-style="float:right" size="small" plain color="var(--theme-main)" text="立即购买"  bind:tap="payFn"/>
     </van-goods-action>
     <van-dialog use-slot title="发布评论" show="{{ show }}" show-cancel-button width="95%" confirmButtonText="发布" confirm-button-color="var(--theme-main)" bind:cancel="onClose" bind:confirm="commentSend">
       <view class="comment_dialog_content">

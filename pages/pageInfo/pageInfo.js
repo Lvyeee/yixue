@@ -43,21 +43,29 @@ Page({
       comment: this.data.commentValue,
       projectId: this.data.id
     }
+    let that = this;
     console.log(parmas,'parmas');
     wx.getStorage({
       key: "userId",
       success(res) {
         parmas.userId = res.data;
         callContainer('/project/addProjectComment', '', 'POST', parmas).then(result => {
-          that.setData({
-            show: false,
-            commentValue:'',
-            star:5
-          });
-          wx.showToast({
-            icon: "success",
-            title: '发布成功！'
-          });
+          if(result.data.code === 200){
+            that.setData({
+              show: false,
+              commentValue:'',
+              star:5
+            });
+            wx.showToast({
+              icon: "success",
+              title: '发布成功！'
+            });
+          }else{
+            wx.showToast({
+              icon: "error",
+              title: result.data.msg
+            });
+          }
           that.getProjectDetail();
         });
       }
@@ -95,5 +103,22 @@ Page({
         commentList: result.data.data.projectCommentInfoList
       });
     });
+  },
+  payFn(){
+    let that = this;
+    wx.getStorage({
+      key: "userId",
+      success(res) {
+        let parmas ={
+          projectId:that.data.id,
+          userId: res.data,
+          ip:'127.0.0.1'
+        }
+        callContainer('/projectOrder/createOrder','','POST',parmas).then(result => {
+
+        })
+      }
+    })
+   
   }
 })

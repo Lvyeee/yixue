@@ -2,7 +2,7 @@ export let callContainer = (path="",parmas="",method="GET",data="") => {
   return new Promise((resolve,reject)=>{
     wx.cloud.callContainer({
       config: {
-        "env": "prod-6g8rvo635e2e18c3"
+        "env": "prod-4g4hymut6da76cf7"
       },
       path: path+'?'+parmas,
       header: {
